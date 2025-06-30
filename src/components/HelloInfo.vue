@@ -22,10 +22,10 @@
                 <div v-for="item in timerArr" :key="item.title" class="hello-timer-box">
                     <div class="hello-timer-numbers">
                         <div class="hello-timer-box-item">
-                            <span class="font-main">{{ item.value[0] }}</span>
+                            <span class="font-main">{{ item.value.toString()[0] }}</span>
                         </div>
                         <div class="hello-timer-box-item">
-                            <span class="font-main">{{ item.value[1] }}</span>
+                            <span class="font-main">{{ item.value.toString()[1] }}</span>
                         </div>
                     </div>
                     <span class="font-main">{{ item.title }}</span>
@@ -38,7 +38,12 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 
-function calculateTimeRemaining(targetDate: Date): { days: number, hours: number, minutes: number, seconds: number } {
+function calculateTimeRemaining(targetDate: Date): { 
+    days: number | string, 
+    hours: number | string, 
+    minutes: number | string, 
+    seconds: number | string 
+} {
     const currentDate = new Date();
     const diffInMs = targetDate.getTime() - currentDate.getTime();
 
@@ -48,10 +53,10 @@ function calculateTimeRemaining(targetDate: Date): { days: number, hours: number
     const seconds = Math.floor((diffInMs % (1000 * 60)) / 1000).toString();
 
     return { 
-        days: days.length === 1 ? '0' + days : days, 
-        hours: hours.length === 1 ? '0' + hours : hours, 
-        minutes: minutes.length === 1 ? '0' + minutes : minutes, 
-        seconds: seconds.length === 1 ? '0' + seconds : seconds 
+        days: days.toString().length === 1 ? '0' + days.toString() : days, 
+        hours: hours.toString().length === 1 ? '0' + hours.toString() : hours, 
+        minutes: minutes.toString().length === 1 ? '0' + minutes.toString() : minutes, 
+        seconds: seconds.toString().length === 1 ? '0' + seconds.toString() : seconds 
     };
 }
 
@@ -76,12 +81,12 @@ const timerArr = computed(() => ([
     },
 ]));
 
-setInterval(() => {
+const timerId = setInterval(() => {
     const newDate = new Date();
     const newDiffInMs = targetDate.getTime() - newDate.getTime();
     if (newDiffInMs <= 0) {
         console.log('Time is up!');
-        clearInterval();
+        clearInterval(timerId);
     } else {
         timeRemaining.value = calculateTimeRemaining(targetDate);
     }
