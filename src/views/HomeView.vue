@@ -25,23 +25,28 @@ import ColorsInfo from "../components/ColorsInfo.vue";
 import GoogleFormBlock from "../components/GoogleFormBlock.vue";
 import Footer from "../components/Footer.vue";
 
-import { computed } from "vue";
+import { computed, onMounted } from "vue";
 import { useWindowSize } from '@vueuse/core'
 
 const { width } = useWindowSize();
 const isMobile = computed(() => width.value < 1144);
+
+onMounted(() => {
+  const mainBlock = document.getElementsByClassName('maint-info-block')[0] as HTMLDivElement;
+  mainBlock.style.height = `${window.innerHeight - 65}px`;
+
+  if (isMobile.value) {
+    const img = document.getElementsByClassName('pier-img')[0] as HTMLDivElement;
+    img.style.height = `${window.innerHeight * 0.25}px`;
+  }
+})
 </script>
 
 <style scoped lang="scss">
 .maint-info-block {
   padding-top: 84px;
-  height: calc(100vh - 65px);
   text-align: center;
   display: flex;
-
-  @media screen and (width < 1144px) {
-    height: calc(100vh - 150px);
-  }
 }
 
 .maint-info-block-content {
@@ -82,10 +87,6 @@ const isMobile = computed(() => width.value < 1144);
   height: 45vh;
   margin-top: 3vh;
   object-fit: cover;
-
-  @media screen and (width < 1144px) {
-    height: 25vh;
-  }
 }
 </style>
 

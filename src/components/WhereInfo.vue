@@ -1,7 +1,7 @@
 <template>
     <div id="where-block" class="where-block-bg">
         <div class="where-block-content">
-            <div class="where-block-content-info">
+            <div class="where-block-content-info" data-aos="fade-left" data-aos-offset="100">
                 <span class="font-biuty where-block-content-info-title">
                     Где будет свадьба?
                 </span>
@@ -12,7 +12,7 @@
                     <span class="weight-bold">Адресс:</span> ул. пятница 19, Энгельс
                 </span>
             </div>
-            <div class="where-block-map">  
+            <div class="where-block-map" :data-aos="isMobile ? 'zoom-in-right' : 'zoom-in-left'"  data-aos-offset="100">  
                 <iframe 
                     src="https://yandex.ru/map-widget/v1/?um=constructor%3A1b1c8cf1e596f0fc5008d622833bfc9cea7db7d51b0a5b9529426609f82aa9cc&amp;source=constructor" 
                     :width="mapWidth" 

@@ -2,21 +2,21 @@
     <div id="colors-block" class="colors-info-wrapper">
         <div class="colors-info-container">
             <div class="colors-info-right-col">
-                <div class="colors-info-text-block">
+                <div class="colors-info-text-block" data-aos="fade-right" data-aos-offset="100">
                     <span class="font-biuty colors-info-title">Свадебная палитра</span>
                     <span class="font-main colors-info-text">
                         Нам будет очень приятно, если ваш наряд будет соответствовать цветовой гамме нашей свадьбы.
                     </span>
                 </div>
 
-                <div v-if="isMobile" class="colors-examples">
+                <div v-if="isMobile" class="colors-examples" data-aos="zoom-in" data-aos-offset="100">
                     <div class="colors-examples-item pink" />
                     <div class="colors-examples-item light-green" />
                     <div class="colors-examples-item yellow" />
                     <div class="colors-examples-item green" />
                 </div>
 
-                <div class="additional-block">
+                <div class="additional-block" data-aos="zoom-in-right" data-aos-offset="100">
                     <span class="font-main additional-text">
                         Также хотим особенно акцентировать ваше внимание на то, что банкет будет проводиться
                         около водоема, и поэтому ближе к концу мероприятия может быть прохладно. 
@@ -25,7 +25,7 @@
                 </div>
             </div>
 
-            <div v-if="!isMobile" class="colors-examples">
+            <div v-if="!isMobile" class="colors-examples" data-aos="zoom-in" data-aos-offset="100">
                 <div class="colors-examples-item pink" />
                 <div class="colors-examples-item light-green" />
                 <div class="colors-examples-item yellow" />

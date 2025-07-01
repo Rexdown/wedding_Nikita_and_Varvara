@@ -1,14 +1,14 @@
 <template>
     <div id="hello-block" class="hello-info-block">
         <div class="hello-info font-cursive">
-            <span class="font-main hello-info-text">
+            <span class="font-main hello-info-text" data-aos="zoom-in-down" data-aos-offset="100">
                 Дорогие родные и близкие, мы приглашаем вас на одно из самых 
                 важных событий в нашей жизни - нашу свадьбу!
             </span>
-            <span class="font-main hello-info-text">
+            <span class="font-main hello-info-text" data-aos="zoom-in-up" data-aos-offset="100">
                 Банкет, посвященный данному мероприятию состоится 
                 <br/><span class="weight-bold">10 августа 2025 года</span>
-                в 15:30 во саратовскому времени.
+                в 15:30 по саратовскому времени.
             </span>
             <img class="hello-info-img-top" src="../assets/img/wedding-frame.svg" />
             <img class="hello-info-img-bottom" src="../assets/img/wedding-frame.svg" />

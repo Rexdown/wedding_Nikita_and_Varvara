@@ -1,5 +1,5 @@
 <template>
-    <div id="google-block" class="form-block-wraper">
+    <div id="google-block" class="form-block-wraper" data-aos="fade-up" data-aos-offset="100">
         <div class="form-block-content">
             <span class="font-biuty form-block-content-title">
                 Анкета гостя
